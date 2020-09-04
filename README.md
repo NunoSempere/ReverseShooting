@@ -3,7 +3,7 @@ README
 
 This is a Github repository with a set of Matlab scripts for reverse shooting. They originally come from Chad Jones' paper [Life and Growth](https://web.stanford.edu/~chadj/LifeandGrowthJPE2016.pdf), and were then modified for use on [Existential Risk and Growth](https://leopoldaschenbrenner.github.io/xriskandgrowth/ExistentialRiskAndGrowth050.pdf). I then cleaned it up and added comments, starting with some notes by Ben Snodin. 
 
-The code contains two parts, one which carries out some vanilla reverse shooting, and another which adds shocks and accelerations. I have only cleaned out the first part. 
+The code contains two parts, one which carries out some vanilla reverse shooting, and another which adds shocks and accelerations. I have only cleaned out the first part, and don't particularly intend to engage with the second.
 
 ## Vanilla reverse shooting
 Files: Calibrate.m, getsteadystate.m, transit1dx.m, solvetransition.m, getells0.m, Transition.m 
@@ -46,7 +46,7 @@ As Acceleration.m, but for the transitory shock rather than the acceleration cas
 ### FindAlternativePath.m 
 Returns values of delta_0 and N_0 such that the associated path minimizes the following objective function "find the time t_0 on the path where delta_(t_0) is close to a given target. Then get the weighted sum of squared deviations between the state variables and the target state variables. 
 
-## General notes
+## General notes and gotchas
 Matlab doesn't seem to have a return keyword; instead return variables are specified with the function definition.
 
 I.e., what would be 
@@ -61,9 +61,13 @@ someFunctionName = function(some variables){
 in any reasonable programming language, is instead in matlab
 
 ```
-[result1, result2, ...] = functionName(some variables)
+[result1, result2, ...] = someFunctionName(some variables)
   do something here
 end
 ```
 
 In functions which take a whole file (and which share the name with that file) it isn't necessary to write the end keyword, but I have because it's less confusing.
+
+This code may not work on Octave, an open source matlab clone, and didn't as of 4/Sept/2020, because optimoptions and optimset have [not been exported](https://wiki.octave.org/Optimization_package) to Octave yet.
+
+In matlab scripts (i.e., files with a .m extension, rather than inputs into the matlab terminal), function definitions must be placed at the end of a file, even if they are used before.
