@@ -5,6 +5,18 @@ This is a Github repository with a set of Matlab scripts for reverse shooting. T
 
 The code contains two parts, one which carries out some vanilla reverse shooting, and another which adds shocks and accelerations. I have only cleaned out the first part. 
 
+## Vanilla reverse shooting
+Files: Calibrate.m, getsteadystate.m, transit1dx.m, solvetransition.m, getells0.m, Transition.m 
+
+How to use: Change the "matlabminiscriptspath" variable on Transition.m, and then run Transition.m
+
+Modify: Change the hard-coded values and equations in the vanilla reverse shooting files to your desired equations and values. Change the "matlabminiscriptspath" variable on Calibration.m as well.
+
+## Shocks and accelerations
+Files: Acceleration.m, TransitoryShock.m, FindAlternativePath.m 
+
+How to use and modify: Here be dragons. Don't. Leave that to less innocent souls. 
+
 ## What each file does
 
 ### getsteadystate.m
@@ -33,26 +45,6 @@ As Acceleration.m, but for the transitory shock rather than the acceleration cas
 
 ### FindAlternativePath.m 
 Returns values of delta_0 and N_0 such that the associated path minimizes the following objective function "find the time t_0 on the path where delta_(t_0) is close to a given target. Then get the weighted sum of squared deviations between the state variables and the target state variables. 
-
-## Vanilla reverse shooting
-Calibrate.m
-getsteadystate.m
-transit1dx.m
-solvetransition.m
-getells0.m
-Transition.m 
-
-## Shocks and accelerations
-Acceleration.m
-TransitoryShock.m
-FindAlternativePath.m 
-
-## How to use for vanilla reverse shooting
-Use: Change the "matlabminiscriptspath" variable on Transition.m, and then run Transition.m  
-Modify: Change the hard-coded values and equations in the vanilla reverse shooting files to your desired equations and values. Change the "matlabminiscriptspath" variable on Calibration.m as well.
-
-## How to use for the more complicated case
-Here be dragons. 
 
 ## General notes
 Matlab doesn't seem to have a return keyword; instead return variables are specified with the function definition.
