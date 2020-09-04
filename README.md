@@ -51,15 +51,19 @@ Matlab doesn't seem to have a return keyword; instead return variables are speci
 
 I.e., what would be 
 
+```
 someFunctionName = function(some variables){
   do something here
   return(results)
 }
+```
 
 in any reasonable programming language, is instead in matlab
 
+```
 [result1, result2, ...] = functionName(some variables)
   do something here
 end
+```
 
 In functions which take a whole file (and which share the name with that file) it isn't necessary to write the end keyword, but I have because it's less confusing.
