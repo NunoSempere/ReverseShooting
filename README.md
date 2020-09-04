@@ -71,3 +71,5 @@ In functions which take a whole file (and which share the name with that file) i
 This code may not work on Octave, an open source matlab clone, and didn't as of 4/Sept/2020, because optimoptions and optimset have [not been exported](https://wiki.octave.org/Optimization_package) to Octave yet.
 
 In matlab scripts (i.e., files with a .m extension, rather than inputs into the matlab terminal), function definitions must be placed at the end of a file, even if they are used before.
+
+Logs are created on the directory returned by the pwd (print working directory) matlab function. 
